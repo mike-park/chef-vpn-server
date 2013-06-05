@@ -1,0 +1,39 @@
+{
+  "openvpn": {
+    "configs": {
+      "vpn.quake.net": {
+        "file_cookbook": "certificates",
+        "port": 1194,
+        "proto": "udp",
+        "dev": "tun",
+        "mode": "routed",
+        "remote_host": "vpn.quake.net",
+        "subnet": "10.8.0.0",
+        "netmask": "255.255.0.0",
+        "auth": {
+          "type": "passwd"
+        },
+        "push": ["redirect-gateway"]
+      }
+    }
+  },
+
+  "sysctl": {
+    "params": {
+      "net": {
+        "ipv4":{
+          "ip_forward": 1
+        }
+      }
+    }
+  },
+
+  "run_list": [
+    "recipe[apt]",
+    "recipe[build-essential]",
+    "recipe[sysctl]",
+    "recipe[simple_iptables]",
+    "recipe[openvpn]",
+    "recipe[vpnbaseline]"
+  ]
+}
