@@ -1,3 +1,4 @@
 tmp/
 .idea/
 site-cookbooks/certificates
+cookbooks/

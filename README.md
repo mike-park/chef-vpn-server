@@ -1,5 +1,10 @@
 # VPN Installation
 
+## Clone
+
+    bundle install
+    librarian-chef install
+
 ## Configuration
 
     edit data_bags/<system>/<name>.json and change password

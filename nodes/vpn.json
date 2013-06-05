@@ -1,7 +1,7 @@
 {
   "openvpn": {
     "configs": {
-      "vpn.quake.net": {
+      "vpn": {
         "file_cookbook": "certificates",
         "port": 1194,
         "proto": "udp",
@@ -13,7 +13,18 @@
         "auth": {
           "type": "passwd"
         },
-        "push": ["redirect-gateway"]
+        "push": [
+          "route-delay 5 30",
+          "route-metric 101",
+          "ping 5",
+          "ping-restart 40",
+          "redirect-gateway def1",
+          "redirect-gateway bypass-dhcp",
+          "redirect-gateway autolocal",
+          "dhcp-option DNS 8.8.8.8",
+          "dhcp-option DNS 8.8.4.4",
+          "comp-lzo yes"
+        ]
       }
     }
   },
@@ -21,7 +32,7 @@
   "sysctl": {
     "params": {
       "net": {
-        "ipv4":{
+        "ipv4": {
           "ip_forward": 1
         }
       }

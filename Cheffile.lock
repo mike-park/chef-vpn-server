@@ -1,0 +1,22 @@
+SITE
+  remote: http://community.opscode.com/api/v1
+  specs:
+    apt (1.10.0)
+    build-essential (1.4.0)
+    simple_iptables (0.3.0)
+    sysctl (0.3.2)
+
+GIT
+  remote: https://github.com/cmur2/chef-openvpn
+  ref: master
+  sha: 4b6d6b7a50f3fe5208c55069ef73e187b8a1dd26
+  specs:
+    openvpn (1.2.0)
+
+DEPENDENCIES
+  apt (>= 0)
+  build-essential (>= 0)
+  openvpn (>= 0)
+  simple_iptables (>= 0)
+  sysctl (>= 0)
+
